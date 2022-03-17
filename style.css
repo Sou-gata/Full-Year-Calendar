@@ -1,0 +1,232 @@
+@import url(./assets/fonts.css);
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", cursive;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./assets/bg-1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 20px;
+}
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 97.5%;
+    height: 100vh;
+}
+.left .heading {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    background: linear-gradient(#f00, #aa0000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.left .heading-line {
+    margin-top: 5px;
+    width: 45%;
+    height: 4px;
+    border: 1px solid #aa0022;
+    border-radius: 3px;
+}
+.left .quote {
+    display: flex;
+    flex-direction: column;
+    padding: 17px;
+    margin-bottom: 20px;
+    font-size: 17.5px;
+}
+.left .quote .lbl-two {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+}
+.left .wrapper {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.left .top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.left .top .year-num {
+    font-family: "Dancing Script", cursive;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #e2001e;
+}
+.left .backward,
+.left .forward {
+    font-family: "Dancing Script", cursive;
+    cursor: pointer;
+    width: 33%;
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
+    color: #00000090;
+}
+.left .buttom {
+    background: url(./assets//bg-2.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    width: 95%;
+    padding: 15px;
+    box-shadow: 0 0 25px #00000080;
+    border-radius: 7.5px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+.left .buttom.animation {
+    animation: 0.3s animate linear;
+}
+.left .month-num {
+    position: absolute;
+    right: 35px;
+    color: #c4c4c4;
+    font-size: 75px;
+    font-weight: bold;
+}
+.left .month-name {
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ef0000;
+}
+.border {
+    width: 60%;
+    height: 1px;
+    background: #222222;
+    margin: 5px 0px;
+}
+.left .buttom .bar,
+.left .buttom .dates {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    grid-gap: 10px;
+    grid-row-gap: 8px;
+    justify-items: center;
+    align-items: center;
+    font-size: 15px;
+    color: #313131;
+}
+.left .buttom .dates {
+    grid-template-rows: repeat(6, 1fr);
+}
+.bar {
+    font-weight: bold;
+}
+.sunday {
+    color: #ff0022;
+}
+.saturday {
+    color: #2b62e2;
+}
+.today {
+    background: #222222;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+/* right side designe */
+
+.right {
+    width: 100%;
+    height: 95vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 12px;
+    padding: 0 10px 0 0;
+}
+.right .months {
+    background: url(./assets//bg-2.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #00000070;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.right .months:hover {
+    transform: scale(1.05);
+}
+
+.right .month-num {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: #c4c4c4;
+    font-weight: bold;
+    font-size: 35px;
+}
+.right .month-name {
+    font-family: "Dancing Script", cursive;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.right .border {
+    margin: 2px 0px;
+    background-color: #9e9e9e;
+    width: 55%;
+}
+.right .bar,
+.right .dates {
+    width: 55%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    font-size: 10px;
+    color: #313131;
+}
+.right .dates {
+    grid-template-rows: repeat(7, 1fr);
+}
+@keyframes animate {
+    0% {
+        transform: scale(0.85);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

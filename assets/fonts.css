@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Dancing Script";
+    /* font-family: 'Dancing Script', cursive; */
+    font-style: normal;
+    font-display: swap;
+    src: url(DancingScript.ttf);
+}
+@font-face {
+    font-family: "Quicksand";
+    font-style: normal;
+    font-display: swap;
+    src: url(Quicksand.ttf);
+}
