@@ -2,6 +2,37 @@
 ::-webkit-scrollbar {
     display: none;
 }
+:root {
+    --light-bg: url(./assets/bg-2.png);
+    --light-body-bg: url(./assets/bg-1.svg);
+    --moon: url(./assets/moon-solid.svg);
+    --red-text: #e2001e;
+    --month-num: #c4c4c4;
+    --shadwo-month: #00000070;
+    --month-border: #9e9e9e;
+    --backward-forward: #00000090;
+    --date-color: #313131;
+    --sunday: #ff0040;
+    --saturday: #2b62e2;
+    --left-month-name: #ef0000;
+    --right-month-color: #000000;
+    --gradient: linear-gradient(#f00, #aa0000);
+}
+.dark {
+    --light-bg: url(./assets/dark-bg.png);
+    --light-body-bg: #222;
+    --moon: url(./assets/sun-solid.svg);
+    --red-text: linear-gradient(0deg, #ff0040, #ff0055);
+    --month-num: #dadada;
+    --shadwo-month: #00000070;
+    --month-border: #9e9e9e;
+    --backward-forward: #ffffff90;
+    --date-color: #cacaca;
+    --saturday: #2b9fe2;
+    --left-month-name: #e7003a;
+    --right-month-color: #ffffff;
+    --gradient: linear-gradient(#ff0000, #ff00dd);
+}
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +42,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url(./assets/bg-1.svg);
+    background: var(--light-body-bg);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -29,12 +60,31 @@ body {
     align-items: center;
     width: 97.5%;
     height: 100vh;
+    position: relative;
+}
+.left .themeSwitch {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 30px;
+    left: 20px;
+    background: var(--date-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.left .themeSwitch .switch {
+    content: var(--moon);
+    width: 20px;
+    height: 20px;
 }
 .left .heading {
     font-size: 40px;
     font-weight: bold;
     margin-top: 20px;
-    background: linear-gradient(#f00, #aa0000);
+    background: var(--gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -43,7 +93,7 @@ body {
     margin-top: 5px;
     width: 45%;
     height: 4px;
-    border: 1px solid #aa0022;
+    border: 1px solid #ff0040;
     border-radius: 3px;
 }
 .left .quote {
@@ -52,6 +102,7 @@ body {
     padding: 17px;
     margin-bottom: 20px;
     font-size: 17.5px;
+    color: var(--date-color);
 }
 .left .quote .lbl-two {
     margin-top: 10px;
@@ -76,7 +127,10 @@ body {
     font-family: "Dancing Script", cursive;
     font-size: 60px;
     font-weight: bolder;
-    color: #e2001e;
+    background: var(--red-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 .left .backward,
 .left .forward {
@@ -86,16 +140,16 @@ body {
     text-align: center;
     font-size: 27px;
     font-weight: bold;
-    color: #00000090;
+    color: var(--backward-forward);
 }
 .left .buttom {
-    background: url(./assets//bg-2.png);
+    background: var(--light-bg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
     width: 95%;
     padding: 15px;
-    box-shadow: 0 0 25px #00000080;
+    box-shadow: 0 0 25px var(--shadwo-month);
     border-radius: 7.5px;
     overflow: hidden;
     transition: 0.3s ease;
@@ -106,7 +160,7 @@ body {
 .left .month-num {
     position: absolute;
     right: 35px;
-    color: #c4c4c4;
+    color: var(--month-num);
     font-size: 75px;
     font-weight: bold;
 }
@@ -115,12 +169,12 @@ body {
     font-size: 40px;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #ef0000;
+    color: var(--left-month-name);
 }
 .border {
     width: 60%;
     height: 1px;
-    background: #222222;
+    background: var(--month-border);
     margin: 5px 0px;
 }
 .left .buttom .bar,
@@ -134,7 +188,7 @@ body {
     justify-items: center;
     align-items: center;
     font-size: 15px;
-    color: #313131;
+    color: var(--date-color);
 }
 .left .buttom .dates {
     grid-template-rows: repeat(6, 1fr);
@@ -143,16 +197,10 @@ body {
     font-weight: bold;
 }
 .sunday {
-    color: #ff0022;
+    color: var(--sunday);
 }
 .saturday {
-    color: #2b62e2;
-}
-.today {
-    background: #222222;
-    color: #fff;
-    border-radius: 3px;
-    padding: 5px;
+    color: var(--saturday);
 }
 
 /* right side designe */
@@ -167,7 +215,7 @@ body {
     padding: 0 10px 0 0;
 }
 .right .months {
-    background: url(./assets//bg-2.png);
+    background: var(--light-bg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -176,7 +224,7 @@ body {
     justify-content: center;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 0 10px #00000070;
+    box-shadow: 0 0 10px var(--shadwo-month);
     padding: 15px;
     cursor: pointer;
     transition: 0.3s ease;
@@ -189,7 +237,7 @@ body {
     position: absolute;
     right: 25px;
     top: 15px;
-    color: #c4c4c4;
+    color: var(--month-num);
     font-weight: bold;
     font-size: 35px;
 }
@@ -199,10 +247,11 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 10px;
+    color: var(--right-month-color);
 }
 .right .border {
     margin: 2px 0px;
-    background-color: #9e9e9e;
+    background-color: var(--month-border);
     width: 55%;
 }
 .right .bar,
@@ -214,7 +263,7 @@ body {
     justify-items: center;
     align-items: center;
     font-size: 10px;
-    color: #313131;
+    color: var(--date-color);
 }
 .right .dates {
     grid-template-rows: repeat(7, 1fr);

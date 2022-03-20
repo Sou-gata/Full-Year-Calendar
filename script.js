@@ -3,6 +3,8 @@ const leftMonth = document.querySelector(".left .buttom");
 const yearNum = document.querySelector(".year-num");
 const backward = document.querySelector(".backward");
 const forward = document.querySelector(".forward");
+const themeSwitch = document.querySelector(".themeSwitch");
+const body = document.querySelector("body");
 
 let monthIndex = 0;
 const Months = [
@@ -68,6 +70,7 @@ function createMonth(monthNumber, yearNumber) {
 
     let firstDayIndex = new Date(year, i, 0).getDay() + 1;
     let lastDate = new Date(year, i + 1, 0).getDate();
+    firstDayIndex = firstDayIndex == 7 ? 0 : firstDayIndex;
     let count = 0;
     for (j = 0; j < firstDayIndex; j++) {
         const blankDiv = document.createElement("div");
@@ -129,4 +132,7 @@ forward.addEventListener("click", () => {
     date.setFullYear(date.getFullYear() + 1);
     calender();
     initClick();
+});
+themeSwitch.addEventListener("click", () => {
+    body.classList.toggle("dark");
 });
