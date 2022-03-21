@@ -35,7 +35,7 @@ function calender() {
     backward.innerHTML = date.getFullYear() - 1;
     forward.innerHTML = date.getFullYear() + 1;
     setLeftCalender();
-    initClick();
+    clickAdjust();
 }
 function createMonth(monthNumber, yearNumber) {
     year = yearNumber;
@@ -126,13 +126,37 @@ function setLeftCalender() {
 backward.addEventListener("click", () => {
     date.setFullYear(date.getFullYear() - 1);
     calender();
-    initClick();
+    clickAdjust();
 });
 forward.addEventListener("click", () => {
     date.setFullYear(date.getFullYear() + 1);
     calender();
-    initClick();
+    clickAdjust();
 });
 themeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
 });
+window.addEventListener("keydown", (e) => {
+    if (e.key == "ArrowRight") {
+        forward.click();
+    } else if (e.key == "ArrowLeft") {
+        backward.click();
+    } else if (e.key == "ArrowDown") {
+        if (monthIndex < 11) {
+            monthIndex += 1;
+            setLeftCalender();
+        }
+    } else if (e.key == "ArrowUp") {
+        if (monthIndex > 0) {
+            monthIndex -= 1;
+            setLeftCalender();
+        }
+    }
+});
+
+function clickAdjust() {
+    const width = window.innerWidth;
+    if (width >= 1060) {
+        initClick();
+    }
+}

@@ -279,3 +279,53 @@ body {
         transform: scale(1);
     }
 }
+@media screen and (max-width: 1060px) {
+    body {
+        overflow-y: scroll;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .left .heading,
+    .left .heading-line,
+    .left .buttom,
+    .left .quote {
+        display: none;
+    }
+    .left {
+        height: 90px;
+    }
+    .left .wrapper {
+        height: 90px;
+    }
+    .right {
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+}
+@media screen and (max-width: 650px) {
+    .right {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        height: auto;
+    }
+    .left {
+        position: static;
+    }
+    .left .themeSwitch {
+        top: 10px;
+        left: 10px;
+    }
+    .left .backward,
+    .left .forward {
+        font-size: 20px;
+        text-align: right;
+        padding: 20px;
+    }
+    .left .forward {
+        text-align: left;
+    }
+}
